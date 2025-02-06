@@ -41,7 +41,17 @@ function addTask(taskContent) {
     li.appendChild(toggleBtn);
     li.appendChild(deleteBtn);
     allTasksContainer.appendChild(li);
-    openTasksContainer.appendChild(li.cloneNode(true)); // Clone for open tasks
+
+    const liClone = li.cloneNode(true);
+
+    openTasksContainer.appendChild(liClone); // Clone for open tasks
+    
+    liClone.querySelector("button").addEventListener("click", () => {
+        toggleTaskStatus(liClone, liClone.querySelector("button"));
+    });
+    liClone.querySelector("button:last-child").addEventListener("click", () => {
+        deleteTask(liClone);
+    })
 }
 
 // Function to switch between "Complete" and "Reopen"
