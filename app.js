@@ -9,11 +9,22 @@ const allTasksContainer = document.getElementById("all-tasks");
 function addTask(taskContent) {
     const li = document.createElement("li");
     li.textContent = taskContent;
-}
 
-// Button for marking the task as completed
-const completeBtn = document.createElement("button");
-completeBtn.textContent = "Complete";
-completeBtn.addEventListener("click", () => {
-    markTaskAsCompleted(li);
-})
+
+    // Button for marking the task as completed
+    const completeBtn = document.createElement("button");
+    completeBtn.textContent = "Complete";
+    completeBtn.addEventListener("click", () => {
+        markTaskAsCompleted(li);
+    });
+    
+    // Button to delete a task
+    const deleteBtn = document.getElementById("button");
+    deleteBtn.textContent = "Delete";
+    deleteBtn.addEventListener("click", () => {
+        deleteTask(li);
+    });
+    li.appendChild(completeBtn);
+    li.appendChild(deleteBtn);
+    allTasksContainer.appendChild(li);
+}
