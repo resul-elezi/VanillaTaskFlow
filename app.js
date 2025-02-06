@@ -43,3 +43,13 @@ function reopenTask(taskElement) {
 function deleteTask(taskElement) {
     taskElement.remove();
 }
+
+// Event Listener for the form
+taskForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const taskContent = taskInput.value.trim();
+    if(taskContent) {
+        addTask(taskContent);
+        taskInput.value = ""; // Reset input field
+    }
+})
