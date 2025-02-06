@@ -43,7 +43,6 @@ function addTask(taskContent) {
     allTasksContainer.appendChild(li);
 
     const liClone = li.cloneNode(true);
-
     openTasksContainer.appendChild(liClone); // Clone for open tasks
     
     liClone.querySelector("button").addEventListener("click", () => {
