@@ -4,6 +4,7 @@
 const taskForm = document.getElementById("task-form");
 const taskInput = document.getElementById("new-task-input");
 const allTasksContainer = document.getElementById("all-tasks");
+const addTaskBtn = document.getElementById("add-btn");
 
 // Function for adding a task
 function addTask(taskContent) {
