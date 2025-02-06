@@ -28,3 +28,18 @@ function addTask(taskContent) {
     li.appendChild(deleteBtn);
     allTasksContainer.appendChild(li);
 }
+
+// Function to mark a task as done
+function reopenTask(taskElement) {
+    const openTaskContainer = document.getElementById("open-tasks");
+    openTaskContainer.appendChild(taskElement);
+    taskElement.querySelector("button").textContent = "Complete";
+    taskElement.querySelector("button").addEventListener("click", () => {
+        markTaskAsCompleted(taskElement);
+    });
+}
+
+// Fuction to delete a task
+function deleteTask(taskElement) {
+    taskElement.remove();
+}
