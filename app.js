@@ -13,7 +13,7 @@ function addTask(taskContent) {
     const li = document.createElement('li');
     li.textContent = taskContent;
 
-    // Button zum Umschalten zwischen "Complete" und "Reopen"
+    // Button to switch between "Complete" and "Reopen"
     const toggleBtn = document.createElement('button');
     toggleBtn.textContent = 'Complete';
     toggleBtn.addEventListener('click', () => {
