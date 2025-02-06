@@ -48,7 +48,7 @@ function deleteTask(taskElement) {
     taskElement.remove();
 }
 
-// Event-Listener für das Formular
+// Event Listener for the form
 taskForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const taskContent = taskInput.value.trim();
