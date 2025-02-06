@@ -18,6 +18,7 @@ addTaskBtn.addEventListener("click", () => {
         taskInput.value = ''; // Reset input field
     }
 });
+
 // Function to add a new task
 function addTask(taskContent) {
     const li = document.createElement('li');
@@ -39,7 +40,8 @@ function addTask(taskContent) {
 
     li.appendChild(toggleBtn);
     li.appendChild(deleteBtn);
-    openTasksContainer.appendChild(li);
+    allTasksContainer.appendChild(li);
+    openTasksContainer.appendChild(li.cloneNode(true)); // Clone for open tasks
 }
 
 // Function to switch between "Complete" and "Reopen"
