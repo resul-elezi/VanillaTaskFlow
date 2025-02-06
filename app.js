@@ -7,8 +7,17 @@ const allTasksContainer = document.getElementById('all-tasks');
 const openTasksContainer = document.getElementById('open-tasks');
 const completedTasksContainer = document.getElementById('completed-tasks');
 const addTaskBtn = document.getElementById("add-btn");
+// const taskContent = taskInput.value.trim();
 
-addTaskBtn.addEventListener("click", addTask);
+
+// Event Listener for the form
+addTaskBtn.addEventListener("click", () => {
+    const taskContent = taskInput.value.trim();
+    if (taskContent) {
+        addTask(taskContent);
+        taskInput.value = ''; // Reset input field
+    }
+});
 // Function to add a new task
 function addTask(taskContent) {
     const li = document.createElement('li');
@@ -48,13 +57,3 @@ function toggleTaskStatus(taskElement, button) {
 function deleteTask(taskElement) {
     taskElement.remove();
 }
-
-// Event Listener for the form
-taskForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const taskContent = taskInput.value.trim();
-    if (taskContent) {
-        addTask(taskContent);
-        taskInput.value = ''; // Eingabefeld zurücksetzen
-    }
-});
