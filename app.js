@@ -43,7 +43,7 @@ function toggleTaskStatus(taskElement, button) {
     }
 }
 
-// Funktion zum Löschen einer Aufgabe
+// Function to delete a task
 function deleteTask(taskElement) {
     taskElement.remove();
 }
