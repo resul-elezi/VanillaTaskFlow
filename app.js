@@ -5,9 +5,7 @@ const taskForm = document.getElementById("task-form");
 const taskInput = document.getElementById("new-task-input");
 const allTasksContainer = document.getElementById("all-tasks");
 const addTaskBtn = document.getElementById("add-btn");
-addTaskBtn.addEventListener("click", () => {
-    console.log("app ist verbunden");
-})
+
 
 
 // Function for adding a task
@@ -34,16 +32,41 @@ function addTask(taskContent) {
     allTasksContainer.appendChild(li);
 }
 
-// Function to mark a task as done
+// Function to reopen a completed task
 function reopenTask(taskElement) {
     const openTaskContainer = document.getElementById("open-tasks");
     openTaskContainer.appendChild(taskElement);
-    taskElement.querySelector("button").textContent = "Complete";
-    taskElement.querySelector("button").addEventListener("click", () => {
+
+    // Change text of the button to "Reopen"
+    const completeBtn = taskElement.querySelector("button");
+    completeBtn.textContent = "Reopen";
+    completeBtn.removeEventListener("click", () => {
+        markTaskAsCompleted(taskElement);
+    });
+    completeBtn.addEventListener("click", () => {
+        markTaskAsOpen(taskElement);
+    });
+}
+
+// Function to mark a task as "open" again
+function markTaskAsOpen(taskElement) {
+    const openTaskContainer = document.getElementById("open-tasks");
+    openTaskContainer.appendChild(taskElement);
+    const completeBtn = taskElement.querySelector("button");
+    completeBtn.textContent = "Complete";
+    completeBtn.removeEventListener("click", () => {
+        markTaskAsOpen(taskElement);
+    });
+    completeBtn.addEventListener("click", () => {
         markTaskAsCompleted(taskElement);
     });
 }
 
+// Function to mark a task as done
+
+taskElement.querySelector("button").textContent = "Complete";
+taskElement.querySelector("button").addEventListener("click", () => {
+    markTaskAsCompleted(taskElement);
 // Fuction to delete a task
 function deleteTask(taskElement) {
     taskElement.remove();
