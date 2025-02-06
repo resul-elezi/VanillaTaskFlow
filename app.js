@@ -20,7 +20,7 @@ function addTask(taskContent) {
         toggleTaskStatus(li, toggleBtn);
     });
 
-    // Button zum Löschen
+    // Button for deletion
     const deleteBtn = document.createElement('button');
     deleteBtn.textContent = 'Delete';
     deleteBtn.addEventListener('click', () => {
@@ -32,7 +32,7 @@ function addTask(taskContent) {
     openTasksContainer.appendChild(li);
 }
 
-// Funktion zum Umschalten zwischen "Complete" und "Reopen"
+// Function to switch between "Complete" and "Reopen"
 function toggleTaskStatus(taskElement, button) {
     if (button.textContent === 'Complete') {
         completedTasksContainer.appendChild(taskElement);
