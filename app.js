@@ -8,6 +8,7 @@ const openTasksContainer = document.getElementById('open-tasks');
 const completedTasksContainer = document.getElementById('completed-tasks');
 const addTaskBtn = document.getElementById("add-btn");
 
+addTaskBtn.addEventListener("click", addTask);
 // Function to add a new task
 function addTask(taskContent) {
     const li = document.createElement('li');
